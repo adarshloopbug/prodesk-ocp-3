@@ -1,0 +1,29 @@
+{
+  "version": 2,
+  "rewrites": [
+    {
+      "source": "/games",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/games/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/games",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/games/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/api/:path*",
+      "destination": "/api/index.js"
+    },
+    {
+      "source": "/((?!api|games|assets|favicon.ico).*)" ,
+      "destination": "/index.html"
+    }
+  ]
+}

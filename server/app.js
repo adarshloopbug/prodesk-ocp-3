@@ -54,8 +54,10 @@ app.use((err, req, res, next) => {
   });
 });
 
-app.listen(PORT, () => {
-  // Production express listener
-});
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    // Production express listener
+  });
+}
 
 export default app;

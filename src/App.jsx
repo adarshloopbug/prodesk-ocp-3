@@ -46,7 +46,14 @@ export default function App() {
       };
 
       const res = await fetch(url, { headers });
-      const json = await res.json();
+      const responseText = await res.text();
+      
+      let json;
+      try {
+        json = JSON.parse(responseText);
+      } catch (e) {
+        throw new Error(`API Endpoint '${url}' returned non-JSON response (HTTP ${res.status}). Ensure server routes are deployed.`);
+      }
 
       if (json.success) {
         setGames(json.data || []);
