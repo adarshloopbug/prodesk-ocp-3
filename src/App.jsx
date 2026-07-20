@@ -135,10 +135,6 @@ export default function App() {
 
   // Handle Delete Entry (DELETE /games/:id)
   const handleDeleteEntry = async (id) => {
-    if (!window.confirm(`Are you sure you want to delete game waitlist entry '${id}'?`)) {
-      return;
-    }
-
     try {
       const headers = {
         'Content-Type': 'application/json',
